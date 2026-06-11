@@ -30,8 +30,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         server-id: github
-        settings-path: ${{github.workspace}}
-        cache: maven
+        server-username: GITHUB_ACTOR
+        server-password: GITHUB_TOKEN
+        settings-path: ${{ github.workspace }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Verify settings.xml
